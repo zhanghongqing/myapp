@@ -1,0 +1,8 @@
+{
+	"index.html": {
+		"refer": [
+			"pages/index.html",
+			"pages/look.html"
+		]
+	}
+}

@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H57998D94",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "myapp",/*应用名称，程序桌面图标名称*/
@@ -135,5 +135,30 @@
                 }
             }
         }
-    }
+    },
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [],
+				"refer": [
+					"pages/index.html",
+					"pages/look.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"pages/t.html",
+				"css/hui.css",
+				"css/fonts/iconfont.woff",
+				"js/vue.min.js",
+				"js/hui.js",
+				"css/fonts/iconfont.ttf",
+				"css/fonts/iconfont.eot",
+				"css/fonts/iconfont.svg",
+				"README.md"
+			]
+		}
+	}
 }

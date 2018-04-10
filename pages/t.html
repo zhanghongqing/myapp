@@ -15,21 +15,11 @@
 			<div id="hui-header-menu"></div>
 		</header>
 		<div class="hui-wrap">
-			首页
+			content
 		</div>
 		<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			hui.ready(function () {
-				var meuns = ['我的订单', '我的消息', '我的收藏', '退出登录'];
-				var cancel = '关闭菜单';
-				hui('#hui-header-menu').click(function() {
-					hui.actionSheet(meuns, cancel, function(e) {
-						console.log(e.index);
-						hui.toast(e.innerHTML);
-					});
-				});
-			})
 		</script>
 	</body>
 

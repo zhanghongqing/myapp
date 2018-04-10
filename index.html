@@ -7,58 +7,117 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/hui.css" />
 		<style type="text/css">
+			#hui-footer{
+				padding: 4px 0;
+				border-top: 1px solid #eee;
+			}
 			#hui-footer a {
 				width: 25%;
 			}
+			.iconfont {
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				overflow: hidden;
+			}
+			
+			.iconfont .icon {
+				width: 30px;
+				height: 30px;
+				filter: grayscale(100%);
+			}
+			#hui-footer a.active .iconfont .icon{
+				filter: grayscale(0%);
+			}
+			#nav-look .icon{
+				width: 56px;
+			}
+			#nav-game .icon{
+				width: 30px;
+			}
+			#nav-my .icon{
+				width: 24px;
+			}
+			
+			.hui-footer-text {
+				font-size: 12px;
+				height: 14px;
+				line-height: 14px;
+				padding-top: 0px;
+				color: #999;
+			}
+			#hui-footer a.active .hui-footer-text{
+				color: #333;
+			}
 		</style>
-		<script type="text/javascript">
-			document.addEventListener('plusready', function() {
-				console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
-
-			});
-		</script>
+		<script src="https://at.alicdn.com/t/font_622696_e295sq4y87pynwmi.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 
 	<body>
-		<header class="hui-header">
-			<div id="hui-back"></div>
-			<h1>首页</h1>
-			<div id="hui-header-menu"></div>
-		</header>
-		<div class="hui-wrap">content
-		</div>
 		<div id="hui-footer">
-			<a href="javascript:hui.toast('首页');" id="nav-home">
-				<div class="hui-footer-icons hui-icons-home"></div>
+			<a href="javascript:changeActive(0);" class="active" id="nav-home">
+				<div class="iconfont">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-home"></use>
+					</svg>
+				</div>
 				<div class="hui-footer-text">首页</div>
 			</a>
-			<a href="javascript:hui.toast('新闻');" id="nav-news">
-				<div class="hui-footer-icons hui-icons-news"></div>
-				<div class="hui-footer-text">新闻</div>
+			<a href="javascript:changeActive(1);" id="nav-look">
+				<div class="iconfont">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-chakan"></use>
+					</svg>
+				</div>
+				<div class="hui-footer-text">看一看</div>
 			</a>
-			<a href="javascript:hui.toast('社区');" id="nav-forum">
-				<div class="hui-footer-icons hui-icons-forum"></div>
-				<div class="hui-footer-text">社区</div>
+			<a href="javascript:changeActive(2);" id="nav-game">
+				<div class="iconfont">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-youxi"></use>
+					</svg>
+				</div>
+				<div class="hui-footer-text">游戏</div>
 			</a>
-			<a href="javascript:hui.toast('我的');" id="nav-my">
-				<div class="hui-footer-icons hui-icons-my"></div>
+			<a href="javascript:changeActive(3);" id="nav-my">
+				<div class="iconfont">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-wode"></use>
+					</svg>
+				</div>
 				<div class="hui-footer-text">我的</div>
 			</a>
 		</div>
 		<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript">
-			var meuns = ['我的订单', '我的消息', '我的收藏', '退出登录'];
-			var cancel = '关闭菜单';
-			hui('#hui-header-menu').click(function() {
-				hui.actionSheet(meuns, cancel, function(e) {
-					console.log(e.index);
-					hui.toast(e.innerHTML);
-				});
-			});
-			hui('#nav-my').pointMsg();
-			hui('#nav-news').pointMsg('hot', null, null, null, '1px');
-			hui('#nav-forum').pointMsg(8);
+			var changeActive;
+			var index,look,game,mine
+			hui.ready(function () {
+				hui.plusReady(function () {
+					plus.webview.create('/pages/index.html', 'index', {
+						top: '0',
+						bottom: '53px'
+					})
+					plus.webview.create('/pages/look.html', 'look', {
+						top: '0',
+						bottom: '53px'
+					})
+					changeActive = function (n) {
+						console.log(plus)
+						switch (n){
+							case 0:
+								plus.webview.show('index', 'none', 0)
+								break;
+							case 1:
+								plus.webview.show('look', 'none', 0)
+								break;
+						}
+						hui('#hui-footer a').eq(n).addClass('active').siblings().removeClass('active')
+					}
+				})
+			})
 		</script>
 	</body>
 
