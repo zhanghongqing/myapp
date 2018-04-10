@@ -2,7 +2,9 @@
 	"index.html": {
 		"refer": [
 			"pages/index.html",
-			"pages/look.html"
+			"pages/look.html",
+			"pages/game.html",
+			"pages/mine.html"
 		]
 	}
 }
