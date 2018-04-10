@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/hui.css" />
+		<style type="text/css">
+			#hui-footer a {
+				width: 25%;
+			}
+		</style>
+		<script type="text/javascript">
+			document.addEventListener('plusready', function() {
+				console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。")
+
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="hui-header">
+			<div id="hui-back"></div>
+			<h1>首页</h1>
+			<div id="hui-header-menu"></div>
+		</header>
+		<div class="hui-wrap">content
+		</div>
+		<div id="hui-footer">
+			<a href="javascript:hui.toast('首页');" id="nav-home">
+				<div class="hui-footer-icons hui-icons-home"></div>
+				<div class="hui-footer-text">首页</div>
+			</a>
+			<a href="javascript:hui.toast('新闻');" id="nav-news">
+				<div class="hui-footer-icons hui-icons-news"></div>
+				<div class="hui-footer-text">新闻</div>
+			</a>
+			<a href="javascript:hui.toast('社区');" id="nav-forum">
+				<div class="hui-footer-icons hui-icons-forum"></div>
+				<div class="hui-footer-text">社区</div>
+			</a>
+			<a href="javascript:hui.toast('我的');" id="nav-my">
+				<div class="hui-footer-icons hui-icons-my"></div>
+				<div class="hui-footer-text">我的</div>
+			</a>
+		</div>
+		<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+			var meuns = ['我的订单', '我的消息', '我的收藏', '退出登录'];
+			var cancel = '关闭菜单';
+			hui('#hui-header-menu').click(function() {
+				hui.actionSheet(meuns, cancel, function(e) {
+					console.log(e.index);
+					hui.toast(e.innerHTML);
+				});
+			});
+			hui('#nav-my').pointMsg();
+			hui('#nav-news').pointMsg('hot', null, null, null, '1px');
+			hui('#nav-forum').pointMsg(8);
+		</script>
+	</body>
+
+</html>
