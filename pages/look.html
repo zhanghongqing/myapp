@@ -20,6 +20,17 @@
 		<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+			hui.ready(function() {
+				hui.plusReady(function() {
+					hui.BackDo = function() {
+						if(confirm('确定退出吗？')) {
+							plus.runtime.quit()
+						} else {
+							return false;
+						}
+					}
+				})
+			})
 		</script>
 	</body>
 

@@ -6,29 +6,58 @@
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../css/hui.css" />
+		<style type="text/css">
+			.hui-header{
+				background: #4F94CD;
+			}
+			#hui-header-sreach{
+				background: rgba(0,0,0,0.2);
+			}
+			#hui-header-sreach input{
+				background: none;
+				color: #eee;
+			}
+			#hui-header-sreach .iconfont{
+				width: 20px;
+				height: 20px;
+				position: relative;
+				top: 50%;
+				margin-top: -10px;
+				margin-left: 6px;
+			}
+		</style>
 	</head>
 
 	<body>
 		<header class="hui-header">
-			<div id="hui-back"></div>
-			<h1>首页</h1>
-			<div id="hui-header-menu"></div>
+			<div></div>
+			<div id="hui-header-sreach">
+				<div class="iconfont">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-sousuo"></use>
+					</svg>
+				</div>
+				<form><input type="search" disabled="disabled" value="请输入搜索关键字" /></form>
+			</div>
 		</header>
 		<div class="hui-wrap">
-			首页
+			首页1
 		</div>
+		<script src="../js/iconfont.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/util.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
-			hui.ready(function () {
-				var meuns = ['我的订单', '我的消息', '我的收藏', '退出登录'];
-				var cancel = '关闭菜单';
-				hui('#hui-header-menu').click(function() {
-					hui.actionSheet(meuns, cancel, function(e) {
-						console.log(e.index);
-						hui.toast(e.innerHTML);
-					});
-				});
+			hui.ready(function() {
+				hui.plusReady(function() {
+					hui.BackDo = function() {
+						if(confirm('确定退出吗？')) {
+							plus.runtime.quit()
+						} else {
+							return false;
+						}
+					}
+				})
 			})
 		</script>
 	</body>

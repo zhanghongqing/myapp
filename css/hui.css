@@ -452,3 +452,6 @@ input[type="month"].hui-picker-valued:before,input[type="date"].hui-picker-value
 .hui-icons-remove:before{content:"\e656";} .hui-icons-edit:before{content:"\e600";} .hui-icons-like:before{content:"\e64a";} 
 .hui-icons-pause:before{content:"\e96b";} .hui-icons-play:before{content:"\e6b1";} .hui-icons-stop:before{content:"\e61b";} 
 .hui-icons-shopping-cart:before{content:"\e633";} .hui-icons-close:before{content:"\e617";}
+
+.iconfont {width: 30px;height: 30px;line-height: 30px;text-align: center;overflow: hidden;}
+.iconfont .icon {width: 100%;height: 100%;}
