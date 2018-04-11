@@ -40,6 +40,6 @@ hui.extend('popoverMsg' ,function(directionX, directionY, msg, width, height, ad
 			HUI_PopoverMsg.style.left = sets.left + thisObj.width() -width + addSets.left + 'px';
 		}
 		document.body.appendChild(HUI_PopoverMsg);
-		hui('#hui-mask').click(function(){hui.maskHide(); hui(HUI_PopoverMsg).remove();});
+		hui('#hui-mask').click(function(){ hui(HUI_PopoverMsg).remove();});
 	};
 });

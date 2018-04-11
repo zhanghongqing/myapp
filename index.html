@@ -7,13 +7,15 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/hui.css" />
 		<style type="text/css">
-			#hui-footer{
+			#hui-footer {
 				padding: 4px 0;
 				border-top: 1px solid #eee;
 			}
+			
 			#hui-footer a {
 				width: 25%;
 			}
+			
 			#hui-footer .iconfont {
 				width: 100%;
 				height: 30px;
@@ -27,16 +29,20 @@
 				height: 30px;
 				filter: grayscale(100%);
 			}
-			#hui-footer a.active .iconfont .icon{
+			
+			#hui-footer a.active .iconfont .icon {
 				filter: grayscale(0%);
 			}
-			#hui-footer #nav-look .icon{
+			
+			#hui-footer #nav-look .icon {
 				width: 56px;
 			}
-			#hui-footer #nav-game .icon{
+			
+			#hui-footer #nav-game .icon {
 				width: 30px;
 			}
-			#hui-footer #nav-my .icon{
+			
+			#hui-footer #nav-my .icon {
 				width: 24px;
 			}
 			
@@ -47,18 +53,9 @@
 				padding-top: 0px;
 				color: #999;
 			}
-			#hui-footer a.active .hui-footer-text{
+			
+			#hui-footer a.active .hui-footer-text {
 				color: #333;
-			}
-			#mask{
-				width: 100vw;
-				height: 100vh;
-				background: rgba(0,0,0,0.5);
-				position: fixed;
-				top: 0;
-				left: 0;
-				z-index: 9999;
-				display: none;
 			}
 		</style>
 	</head>
@@ -98,15 +95,14 @@
 				<div class="hui-footer-text">我的</div>
 			</a>
 		</div>
-		<div id="mask"></div>
 		<script src="js/iconfont.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script type="text/javascript">
 			var changeActive;
-			var index,look,game,mine
-			hui.ready(function () {
-				hui.plusReady(function () {
+			var index, look, game, mine
+			hui.ready(function() {
+				hui.plusReady(function() {
 					plus.webview.create('/pages/index.html', 'index', {
 						top: '0',
 						bottom: '53px'
@@ -124,9 +120,9 @@
 						bottom: '53px'
 					})
 					plus.webview.show('index', 'none', 0)
-					changeActive = function (n) {
+					changeActive = function(n) {
 						console.log(plus)
-						switch (n){
+						switch(n) {
 							case 0:
 								showWebView('index')
 								break;
@@ -145,7 +141,8 @@
 						}
 						hui('#hui-footer a').eq(n).addClass('active').siblings().removeClass('active')
 					}
-					function showWebView (page) {
+
+					function showWebView(page) {
 						plus.webview.hide('index', 'none', 0)
 						plus.webview.hide('look', 'none', 0)
 						plus.webview.hide('game', 'none', 0)
@@ -154,9 +151,6 @@
 					}
 				})
 			})
-			function showMask () {
-				hui.blackMask();
-			}
 		</script>
 	</body>
 

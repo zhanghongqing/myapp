@@ -7,10 +7,11 @@
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="../css/hui.css" />
 		<style type="text/css">
-			.hui-header{
+			.hui-header {
 				background: #4F94CD;
 			}
-			.hui-header #qrcode{
+			
+			.hui-header #qrcode {
 				min-width: 30px;
 				max-width: 30px;
 				height: 30px;
@@ -19,23 +20,28 @@
 				margin-top: -15px;
 				margin-left: 6px;
 			}
-			.hui-header #qrcode .iconfont{
+			
+			.hui-header #qrcode .iconfont {
 				width: 100%;
 				height: 100%;
 				line-height: 40px;
 			}
-			.hui-header #qrcode .icon{
+			
+			.hui-header #qrcode .icon {
 				width: 30px;
 				height: 30px;
 			}
-			#hui-header-sreach{
-				background: rgba(0,0,0,0.2);
+			
+			#hui-header-sreach {
+				background: rgba(0, 0, 0, 0.2);
 			}
-			#hui-header-sreach input{
+			
+			#hui-header-sreach input {
 				background: none;
 				color: #eee;
 			}
-			#hui-header-sreach .iconfont{
+			
+			#hui-header-sreach .iconfont {
 				width: 20px;
 				height: 20px;
 				position: relative;
@@ -43,7 +49,8 @@
 				margin-top: -10px;
 				margin-left: 6px;
 			}
-			#tool{
+			
+			#tool {
 				min-width: 30px;
 				max-width: 30px;
 				height: 30px;
@@ -55,7 +62,7 @@
 		</style>
 	</head>
 
-	<body>
+	<body id="body">
 		<header class="hui-header">
 			<div class="r"></div>
 			<div id="qrcode">
@@ -101,12 +108,21 @@
 							return false;
 						}
 					}
-					hui('#qrcode').click(function () {
-						plus.webview.open('/pages/qrcode.html', 'qrcode', {}, 'none', 0)
+					var ws = plus.webview.currentWebview();
+					var index = ws.opener()
+					hui('#tool').click(function() {
+						index.evalJS('hui.maskShow();')
 					})
+					hui('#body').on('click', '#hui-mask', function() {
+						index.evalJS('hui.maskHide();')
+						hui.maskHide()
+					});
 					var menu = '<div class="hui-list" style="border:0px;"><a>菜单1</a><a>菜单2</a><a>菜单3</a><a>菜单4</a><a>菜单5</a></div>';
 					hui('#tool').popoverMsg('right', 'down', menu, 220, 150);
-					openSearch = function () {
+					hui('#qrcode').click(function() {
+						plus.webview.open('/pages/qrcode.html', 'qrcode', {}, 'none', 0)
+					})
+					openSearch = function() {
 						plus.webview.open('/pages/search.html', 'search', {}, 'slide-in-right', 200)
 					}
 					hui('#icon-erweima path').attr('fill', '#FFFFFF')
