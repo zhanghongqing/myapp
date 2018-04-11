@@ -50,6 +50,16 @@
 			#hui-footer a.active .hui-footer-text{
 				color: #333;
 			}
+			#mask{
+				width: 100vw;
+				height: 100vh;
+				background: rgba(0,0,0,0.5);
+				position: fixed;
+				top: 0;
+				left: 0;
+				z-index: 9999;
+				display: none;
+			}
 		</style>
 	</head>
 
@@ -88,6 +98,7 @@
 				<div class="hui-footer-text">我的</div>
 			</a>
 		</div>
+		<div id="mask"></div>
 		<script src="js/iconfont.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -143,6 +154,9 @@
 					}
 				})
 			})
+			function showMask () {
+				hui.blackMask();
+			}
 		</script>
 	</body>
 

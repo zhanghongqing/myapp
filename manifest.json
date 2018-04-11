@@ -1,7 +1,7 @@
 {
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "H57998D94",/*应用的标识，创建应用时自动生成，勿手动修改*/
-    "name": "myapp",/*应用名称，程序桌面图标名称*/
+    "name": "无名",/*应用名称，程序桌面图标名称*/
     "version": {
         "name": "1.0",/*应用版本名称*/
         "code": ""
@@ -145,6 +145,14 @@
 					"pages/look.html",
 					"pages/game.html",
 					"pages/mine.html"
+				],
+				"priority": 0
+			},
+			"pages/index.html": {
+				"resources": [],
+				"refer": [
+					"pages/qrcode.html",
+					"pages/search.html"
 				],
 				"priority": 0
 			}

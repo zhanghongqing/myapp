@@ -5,6 +5,13 @@
 			"pages/look.html",
 			"pages/game.html",
 			"pages/mine.html"
+		],
+		"resources": []
+	},
+	"pages/index.html": {
+		"refer": [
+			"pages/qrcode.html",
+			"pages/search.html"
 		]
 	}
 }
