@@ -97,7 +97,7 @@
 		</div>
 		<script src="js/iconfont.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/hui.js" type="text/javascript" charset="utf-8"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			var changeActive;
 			var index, look, game, mine
@@ -121,7 +121,6 @@
 					})
 					plus.webview.show('index', 'none', 0)
 					changeActive = function(n) {
-						console.log(plus)
 						switch(n) {
 							case 0:
 								showWebView('index')

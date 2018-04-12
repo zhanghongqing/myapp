@@ -88,10 +88,23 @@
 				</div>
 			</div>
 		</header>
-		<div class="hui-wrap">
-			首页1
-			<button type="button" class="hui-button" id="bbb">按钮</button>
+		<div class="hui-wrap" id="indexContainer">
+			<grid></grid>
 		</div>
+		<script type="text/x-template" id="grid">
+			<div class="fourView">
+				<ul>
+					<li class="view_item" v-for="(item, key) in datas" :key="key">
+						<div class="view_item_icon">
+							<svg class="icon" aria-hidden="true">
+								<use xlink:href="#icon-gongjutai"></use>
+							</svg>
+						</div>
+						<div class="view_item_text">{{item.name}}</div>
+					</li>
+				</ul>
+			</div>
+		</script>
 		<script src="../js/iconfont.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/hui.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../js/hui-popover-msg.js" type="text/javascript" charset="utf-8"></script>
@@ -126,8 +139,43 @@
 						plus.webview.open('/pages/search.html', 'search', {}, 'slide-in-right', 200)
 					}
 					hui('#icon-erweima path').attr('fill', '#FFFFFF')
+					init()
 				})
 			})
+
+			function init() {
+				Vue.component("grid", {
+					template: "#grid"
+				});
+				var vue = new Vue({
+					el: '#indexContainer',
+					data: {
+						datas: [{
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}, {
+							name: 123
+						}]
+					}
+				})
+			}
 		</script>
 	</body>
 
